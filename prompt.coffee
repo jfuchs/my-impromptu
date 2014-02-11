@@ -1,8 +1,7 @@
+git = require 'impromptu-git'
+
 module.exports = (Impromptu, section) ->
   system = @module.require 'impromptu-system'
-  git = @module.require 'impromptu-git'
-
-  git.fetch()
 
   section 'user',
     content: [system.user, system.shortHost]
