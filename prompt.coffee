@@ -45,9 +45,12 @@ module.exports = (Impromptu, section) ->
       "#{behind}⁻" if behind
 
   section 'github:pr',
-    content: github.pullRequestNumber
-    format: (number) ->
-      "PR ##{number}" if number
+    when: github.pullRequestNumber
+    content: [github.pullRequestNumber, github.pullRequestState]
+    format: (number, state) ->
+      if state is 'closed'
+        @foreground = 'default'
+      "PR ##{number}"
     background: 'black'
     foreground: 'blue'
 
