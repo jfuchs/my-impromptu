@@ -24,9 +24,12 @@ module.exports = (Impromptu, section) ->
     foreground: 'white'
 
   section 'git:branch',
-    content: git.branch
+    content: [git.branch, git.isRebasing]
     background: 'green'
     foreground: 'black'
+    format: (branch, isRebasing) ->
+      @background = 'yellow' if isRebasing
+      branch
 
   section 'git:ahead',
     content: git.ahead
