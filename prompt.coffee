@@ -19,9 +19,11 @@ module.exports = (Impromptu, section) ->
 
   section 'git:in',
     when: git.branch
-    content: 'in'
+    content: git.isRebasing
     background: 'black'
     foreground: 'white'
+    format: (isRebasing) ->
+      if isRebasing then 'rebasing' else 'in'
 
   section 'git:branch',
     content: [git.branch, git.isRebasing]
