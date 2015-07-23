@@ -25,6 +25,7 @@
   "dependencies": {
     "impromptu": "~0.3.0-beta.0",
     "impromptu-git": "~0.2.0-beta.0",
+    "impromptu-github": "~0.2.0-beta.0",
     "impromptu-system": "~0.2.0-beta.0"
   },
   "keywords": []
