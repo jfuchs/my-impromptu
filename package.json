@@ -22,17 +22,10 @@
     }
   ],
   "main": "index.js",
-  "scripts": {
-    "test": "mocha test/*.coffee --compilers coffee:coffee-script"
-  },
   "dependencies": {
     "impromptu": "~0.2.6",
     "impromptu-git": "~0.1.7",
     "impromptu-system": "~0.1.2"
-  },
-  "devDependencies": {
-    "mocha": "~1.8.2",
-    "should": "~1.2.2"
   },
   "keywords": []
 }
