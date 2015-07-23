@@ -23,9 +23,9 @@
   ],
   "main": "index.js",
   "dependencies": {
-    "impromptu": "~0.2.6",
-    "impromptu-git": "~0.1.7",
-    "impromptu-system": "~0.1.2"
+    "impromptu": "~0.3.0-beta.0",
+    "impromptu-git": "~0.2.0-beta.0",
+    "impromptu-system": "~0.2.0-beta.0"
   },
   "keywords": []
 }
