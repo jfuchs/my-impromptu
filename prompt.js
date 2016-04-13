@@ -15,8 +15,8 @@ module.exports = function(Impromptu, section) {
 
   section('pwd', {
     content: system.prettyPwd,
-    background: 'blue',
-    foreground: 'white'
+    background: 'black',
+    foreground: 'blue'
   })
 
   section('git:in', {
@@ -31,18 +31,21 @@ module.exports = function(Impromptu, section) {
 
   section('git:branch', {
     content: [git.branch, git.isRebasing],
-    background: 'green',
-    foreground: 'black',
+    background: 'black',
+    foreground: 'green',
     format: function(branch, isRebasing) {
-      if (isRebasing) this.background = 'yellow'
+      if (isRebasing) {
+        this.background = 'yellow'
+        this.foreground = 'black'
+      }
       return branch
     }
   })
 
   section('git:ahead', {
     content: git.ahead,
-    background: 'black',
-    foreground: 'green',
+    background: 'green',
+    foreground: 'white',
     when: git.isRepo,
     format: function(ahead) {
       if (ahead) return ahead + '⁺'
@@ -51,8 +54,8 @@ module.exports = function(Impromptu, section) {
 
   section('git:behind', {
     content: git.behind,
-    background: 'black',
-    foreground: 'red',
+    background: 'red',
+    foreground: 'white',
     when: git.isRepo,
     format: function(behind) {
       if (behind) return behind + '⁻'
@@ -96,7 +99,8 @@ module.exports = function(Impromptu, section) {
       if (staged) return 'staged ' + staged
     },
     when: git.isRepo,
-    foreground: 'green'
+    foreground: 'white',
+    background: 'green'
   })
 
   section('git:unstaged', {
@@ -105,11 +109,12 @@ module.exports = function(Impromptu, section) {
       if (unstaged) return 'unstaged ' + unstaged
     },
     when: git.isRepo,
-    foreground: 'blue'
+    foreground: 'white',
+    background: 'blue'
   })
 
   return section('end', {
-    content: ['\n$', system.lastExitCode],
+    content: ['\n🔥', system.lastExitCode],
     format: function(string, lastExitCode) {
       if (lastExitCode) this.foreground = 'red'
       return string
